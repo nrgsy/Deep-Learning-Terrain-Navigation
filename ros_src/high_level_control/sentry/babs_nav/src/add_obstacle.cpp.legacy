@@ -1,0 +1,71 @@
+#include <ros/ros.h>
+#include <pluginlib/class_loader.h>
+#include <costmap_2d/layer.h>
+
+int main(int argc, char** argv){
+
+  ROS_INFO("attempting to add obstacle");
+
+pluginlib::ClassLoader<costmap_2d::Layer> layer_loader("costmap_2d", "costmap_2d::Layer");
+
+try
+{
+  // boost::shared_ptr<costmap_2d::Layer> simpleLayer = layer_loader.createInstance("simple_layer_namespace::SimpleLayer");
+  boost::shared_ptr<costmap_2d::Layer> simpleLayer = layer_loader.createInstance("simple_layer_namespace::SimpleLayer");
+
+  ROS_INFO("CAllING simpleLayer _________________________-------------------------------------------------");
+  // simpleLayer->howee();
+  //simpleLayer->getName();
+}
+catch(pluginlib::PluginlibException& ex)
+{
+  //handle the class failing to load
+  ROS_ERROR("The plugin failed to load for some reason. Error: %s", ex.what());
+}
+
+  // ros::init(argc, argv, "simple_navigation_goals");
+  // ros::spin();
+
+  return 0;
+}
+
+
+
+
+// #include <ros/ros.h>
+// #include <pluginlib/class_loader.h>
+// #include <simple_layers/simple_layer.h>
+
+
+
+
+// int main(int argc, char** argv){
+
+//   ROS_INFO("attempting to add obstacle");
+
+// pluginlib::ClassLoader<simple_layer_namespace::SimpleLayer> layer_loader("simple_layers", "simple_layer_namespace::SimpleLayer");
+
+// try
+// {
+//   boost::shared_ptr<simple_layer_namespace::SimpleLayer> simpleLayer = layer_loader.createInstance("simple_layer_namespace::SimpleLayer");
+  
+// 	// SimpleLayer s;
+// 	// simple_layer_namespace::SimpleLayer s;
+// 	// s.howee();
+// 	// s = new SimpleLayer();
+
+//   ROS_INFO("CAllING simpleLayer _________________________-------------------------------------------------");
+//   // simpleLayer.getName();
+// }
+// catch(pluginlib::PluginlibException& ex)
+// {
+//   //handle the class failing to load
+//   ROS_ERROR("The plugin failed to load for some reason. Error: %s", ex.what());
+// }
+
+//   // ros::init(argc, argv, "simple_navigation_goals");
+//   // ros::spin();
+
+//   return 0;
+// }
+

@@ -1,0 +1,11 @@
+<launch>
+
+<node name="lin_steering" pkg="mapping_and_control" type="lin_steering" />
+  
+<node name="path_client" pkg="mapping_and_control" type="path_client" />
+
+<node name="lidar" pkg="mapping_and_control" type="lidar" />
+
+<node name="pub_des_state_startup" pkg="mapping_and_control" type="pub_des_state_startup" />
+
+</launch>

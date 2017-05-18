@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="default">
+    
+
+
+
+
+    <model name="my_mesh_one_link">
+      <static>true</static>
+      <link name="mesh_link">
+
+        <visual name="visual1">
+          <geometry>
+            <mesh><uri>model://terrain/map_final.dae</uri></mesh>
+
+
+          </geometry>
+        </visual>
+        <collision name="collision1">
+          <geometry>
+             <mesh><uri>model://terrain/map_final.dae</uri></mesh>
+          </geometry>
+        </collision>
+
+      </link>
+    </model>
+
+    <!--
+
+      <model name="my_mesh_one_link">
+      <static>true</static>
+      <link name="mesh_link">
+
+        <visual name="visual1">
+          <geometry>
+            <mesh><uri>file://map_final.dae</uri></mesh>
+          </geometry>
+        </visual>
+        <collision name="collision1">
+          <geometry>
+            <mesh><uri>file://map_final.dae</uri></mesh>
+          </geometry>
+        </collision>
+
+      </link>
+    </model>
+
+    <model name="my_mesh">
+      <pose>0 0 0  0 0 0</pose>
+      <static>true</static>
+      <link name="body">
+        <visual name="visual">
+          <geometry>
+            <mesh><uri>file://map_final.dae</uri></mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+
+     <model:physical name="hill">
+       <xyz>0 0 00</xyz>
+       <rpy>0 0 0</rpy>
+       <static>true</static>
+       <body:trimesh name="hill">
+          <geom:trimesh name="hill">
+            <scale>1.0 1.0 1.0</scale>
+            <mesh>map_final.dae</mesh>
+            <visual>
+               <scale>1.0 1.0 1.0</scale>
+               <mesh>map_final.dae</mesh>
+            </visual>
+          </geom:trimesh>
+      </body:trimesh>
+     </model:physical>
+-->
+
+
+  </world>
+</sdf>

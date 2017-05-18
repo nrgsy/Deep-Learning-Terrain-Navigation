@@ -1,0 +1,5 @@
+1.
+Copy the contents of ./goes_to_devel_lib to /home/thomas/ros_ws/devel/lib
+
+2.
+Copy the contents of ./goes_to_dot_gazebo_models to /home/thomas/.gazebo/models

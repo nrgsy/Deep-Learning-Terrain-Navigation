@@ -1,0 +1,46 @@
+# local_costmap:
+#   global_frame: odom
+#   robot_base_frame: base_link
+#   update_frequency: 5.0
+#   publish_frequency: 2.0
+#   static_map: false
+#   rolling_window: true
+#   width: 6.0
+#   height: 6.0
+#   resolution: 0.1
+
+local_costmap:
+  publish_voxel_map: true
+  global_frame: odom
+  robot_base_frame: base_link
+  update_frequency: 6.0
+  publish_frequency: 2.0
+  static_map: false
+  rolling_window: true
+  width: 10.0
+  height: 10.0
+  resolution: 0.025
+
+  #map_topic: /map
+
+# TODO it should work with empty plugins first
+  # plugins: #[]
+  #  - 
+  #    name: static_map2
+  #    type: "costmap_2d::StaticLayer"
+
+     
+   # - 
+   #   name: static_map
+   #   type: "costmap_2d::StaticLayer"
+   # #   map_topic: map
+   # 
+   # - 
+   #   name: inflation_layer
+   #   type: "costmap_2d::InflationLayer"
+   # - 
+   #   name: obstacle_layer
+   #   type: "costmap_2d::ObstacleLayer" 
+   # -
+   #   name: simple_layer
+   #   type: "simple_layer_namespace::SimpleLayer"

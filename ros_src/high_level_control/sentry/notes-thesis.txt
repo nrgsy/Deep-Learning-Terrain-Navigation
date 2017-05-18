@@ -1,0 +1,139 @@
+
+
+rostopic pub /cmd_mode std_msgs/Int32 1
+
+
+
+
+
+Startup:
+
+plug in robot
+flip circuit breaker
+turn on computer
+hit rem estop to turn on motor controller (check lights)
+
+plug ethernet into router and antenna power supply
+plug antenna ethernet into antenna power suppy
+
+{
+plug ethernet into router and computer
+//OR
+from mac connect to router dd-wrt
+in advanced wifi settings, in TCP/IP, change ip to 192.168.1.102
+(use dhcp with manual address)
+}
+
+{
+./login_babs.sh //only on rick's computer
+//OR
+export ROS_MASTER_URI=http://192.168.1.100:11311
+// OR put this in bashrc:
+alias babs_master='export ROS_MASTER_URI=http://192.168.1.100:11311'
+}
+
+export ROS_IP=(inet addr) #or whatever ifconfig says your ip is
+
+//convenience:
+export ROS_IP=192.168.1.132; export ROS_MASTER_URI=http://192.168.1.100:11311; ssh babs@192.168.1.100
+
+ssh babs@192.168.1.100 //ping 192.168.1.100 if necessary
+
+{
+./just_do_it.sh //on babs, enter password 1lmiagmc!...
+//restart twice or until rostopic echo odom shows changes
+}
+
+export ROS_IP=192.168.1.132; export ROS_MASTER_URI=http://192.168.1.100:11311; // on computer to share rosmaster
+rqt_console //on computer
+
+roslaunch sentry_urdf legacy.launch //on babs
+
+{
+//to change control mode
+./auto_mode.sh //on babs
+//OR
+rostopic pub /cmd_mode std_msgs/Int32 1 //on babs
+}
+
+roslaunch sentry_urdf start_rviz.launch //on computer
+
+
+
+TDLR:
+plug in robot
+flip circuit breaker
+turn on computer
+hit rem estop to turn on motor controller (check lights)
+plug ethernet into router and antenna power supply
+plug antenna ethernet into antenna power suppy
+plug ethernet into router and computer
+export ROS_IP=192.168.1.132; export ROS_MASTER_URI=http://192.168.1.100:11311; ssh babs@192.168.1.100
+./just_do_it.sh //on babs, enter password 1lmiagmc!  //repeat until rostopic echo odom shows changes
+export ROS_IP=192.168.1.132; export ROS_MASTER_URI=http://192.168.1.100:11311; //on any terminals on computer
+rqt_console //on computer
+roslaunch babs_nav be_free.launch //on babs
+roslaunch sentry_urdf start_rviz.launch //on computer
+rosrun navigation_goals //on babs
+
+
+
+./auto_mode.sh //on babs to change control mode
+
+//go home
+./go_home.sh
+
+//joystick
+./joy_mode.sh
+
+//un-ssh
+logout
+
+//for teleop
+rosrun sentry_teleop sentry_joy
+
+#for meessages published via rosinfo
+rqt_console
+
+rosrun tf tf_echo odom map
+rosrun tf view_frames
+
+#to save
+rosrun map_server map_saver -f newMap
+
+#luc said for filter things?
+rqt_logger_level
+
+//vim
+vim filename
+esc-i //to edit
+esc:wq //to exit
+
+
+
+
+global fixed frame for visualization of lidar: base_laser1_link
+Add "LaserScan" change topic to "scan"
+
+rosrun babs_slam babslam_main
+rosbag play north_loop.bag
+rosrun rviz rviz
+
+
+
+
+
+
+
+
+
+
+
+
+catkin_create_pkg babs_nav move_base robot_state_publisher gazebo_ros
+cs_create_pkg babs_nav move_base robot_state_publisher gazebo_ros
+
+#added to bashrc (by luc's script)
+alias cs_create_pkg='~/ros_ws/src/cwru/learning_ros_external_packages/cs_create_pkg.py'
+
+rostopic pub cmd_vel geometry_msgs/Twist '{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'

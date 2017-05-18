@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<robot name="sentry" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    
+    <!-- Included URDF Files -->
+    <xacro:include filename="$(find sentry_urdf)/urdf/sentry_base.urdf.xacro" />
+    
+    <xacro:sentry_macro />
+</robot>

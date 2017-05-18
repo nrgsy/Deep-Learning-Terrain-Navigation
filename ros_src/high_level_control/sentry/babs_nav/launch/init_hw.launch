@@ -1,0 +1,7 @@
+<launch>
+
+  <include file="$(find babs_nav)/launch/hw_babs_configuration.launch" />
+  <include file="$(find babs_nav)/launch/move_base.launch" />
+  <node name="navigation_goals" pkg="babs_nav" type="navigation_goals" />
+
+</launch>

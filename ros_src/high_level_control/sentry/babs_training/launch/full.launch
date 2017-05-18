@@ -1,0 +1,8 @@
+<launch>
+
+  <include file="$(find babs_training)/launch/sim_config.launch" />
+
+  <!--
+  <node name="data_collection" pkg="babs_training" type="data_collection" />
+-->
+</launch>

@@ -1,0 +1,10 @@
+git submodule add https://github.com/tu-darmstadt-ros-pkg/hector_gazebo.git
+
+git submodule add https://github.com/tu-darmstadt-ros-pkg/hector_tracked_vehicles_common.git
+
+git submodule add https://github.com/ros-perception/openslam_gmapping
+
+//jk not this one anymore
+//git submodule add https://github.com/ros-perception/slam_gmapping
+
+git submodule add https://github.com/tu-darmstadt-ros-pkg/hector_slam
