@@ -4,4 +4,4 @@ This work investigates a strategy for evaluating the navigability of terrain fro
 Full details can be found in this paper: 
 https://etd.ohiolink.edu/pg_10?211175618791100::NO:10:P10_ETD_SUBID:151078
 
-Apologies for the lack of documentation. If you wish to get this project running on your own computer, you can reach the author at tpech46@gmail.com for instructions.
+The author is available at tpech46@gmail.com to answer any questions.
